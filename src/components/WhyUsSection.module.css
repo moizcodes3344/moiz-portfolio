@@ -1,0 +1,36 @@
+.section { padding: 150px 15px; }
+.container { max-width: 1500px; margin: auto; display: flex; flex-direction: column; gap: 300px; }
+.first { display: flex; align-items: center; gap: 100px; }
+.copy { flex: 0 0 35%; display: flex; flex-direction: column; gap: 16px; }
+.copy h2 { font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.04em; }
+.firstImage { flex: 1; aspect-ratio: 817 / 573; overflow: hidden; }
+.second { display: flex; align-items: center; gap: 150px; }
+.secondImage { flex: 1; aspect-ratio: 696 / 787; }
+.stats { flex: 0 0 40%; display: flex; flex-direction: column; gap: 24px; }
+.stats > div { display: flex; gap: 8px; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 24px; }
+.stats > div:last-child { border: none; padding-bottom: 0; }
+.value { font-family: var(--font-display), Impact, sans-serif; font-size: 88px; font-weight: 600; line-height: 1; letter-spacing: -.07em; }
+.value span { color: #e5b60c; }
+.stats dd { color: #a4a4a4; font-size: 18px; letter-spacing: -.04em; }
+@keyframes editorialRise { from { opacity:.2; transform:translate3d(0,56px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+@keyframes mediaDrift { from { transform:translate3d(0,44px,0) scale(1.035); } to { transform:translate3d(0,-44px,0) scale(1.035); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .copy,.stats { animation:editorialRise linear both; animation-timeline:view(); animation-range:entry 4% entry 38%; }
+    .firstImage,.secondImage { animation:mediaDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; }
+  }
+}
+@media (max-width: 1199px) {
+  .section { padding: 64px 15px; }
+  .container { gap: 200px; }
+  .first,.second { flex-direction: column; gap: 24px; align-items: stretch; }
+  .copy { flex: auto; }
+  .copy h2 { font-size: 23px; line-height: 1.08; }
+  .firstImage { flex: auto; aspect-ratio: 1.425; }
+  .secondImage { flex: auto; aspect-ratio: .885; }
+  .stats { flex: auto; gap: 24px; }
+  .stats > div { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .value { font-size: 88px; }
+  .stats dd { font-size: 24px; }
+}
+@media (prefers-reduced-motion:reduce){.copy,.stats,.firstImage,.secondImage{animation:none;transform:none;opacity:1}}

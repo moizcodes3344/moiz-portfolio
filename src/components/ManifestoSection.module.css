@@ -1,0 +1,15 @@
+.section { height: 100svh; position: relative; display: grid; place-items: center; isolation: isolate; overflow: clip; }
+.background { position: absolute; z-index: -2; inset: -15% 0; filter: grayscale(1); animation: drift linear both; animation-timeline: view(); }
+.overlay { position: absolute; z-index: -1; inset: 0; background: #0009; }
+.text { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 90%; text-align: center; }
+.text h2 { display: flex; flex-direction: column; gap: 4px; }
+.text > p:last-child { max-width: 380px; font-size: 18px; line-height: 1.4; margin-top: 8px; }
+@keyframes drift { from { transform: translateY(-8%); } to { transform: translateY(8%); } }
+@keyframes manifestoReveal { from { opacity: .15; transform: translateY(48px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .text { animation: manifestoReveal linear both; animation-timeline: view(); animation-range: entry 5% entry 42%; }
+  }
+}
+@media (max-width: 1199px) { .text { gap: 16px; } .text h2 { font-size: 50px; } .text > p:last-child { max-width: 320px; } }
+@media (prefers-reduced-motion: reduce) { .background,.text { animation: none; transform:none; opacity:1; } }

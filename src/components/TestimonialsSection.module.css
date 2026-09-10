@@ -1,0 +1,49 @@
+.section { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 150px 15px; }
+.container { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 1500px; }
+.heading { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.heading h2 { width: 100%; margin: 0; font-size: 88px; line-height: .9; letter-spacing: -.07em; font-weight: 600; }
+.heading > p { margin: 0; min-height: 24px; }
+.panel { width: 100%; box-shadow: inset 0 0 0 1px #333; }
+.content { position: relative; height: 560px; padding: 40px; display: flex; align-items: center; justify-content: center; }
+.quoteMark { position: absolute; left: 0; top: 0; color: #333; }
+.arrows { position: absolute; top: 0; right: 0; display: flex; }
+.arrows button { width: 64px; height: 64px; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #888; cursor: pointer; }
+.arrows button + button { border-left: 0; }
+.arrows svg { width: 32px; height: 32px; }
+.previousArrow { transform: rotate(-135deg); }
+.nextArrow { transform: rotate(45deg); }
+.tabPanel { width: 100%; max-width: 920px; }
+.principle { display: flex; flex-direction: column; gap: 48px; animation: revealPrinciple 250ms ease both; }
+.quote { font-size: 32px; font-weight: 700; line-height: 38.4px; letter-spacing: -.03em; margin: 0; min-height: 115.2px; }
+.identity { display: flex; gap: 16px; align-items: center; height: 80px; }
+.artwork { width: 64px; height: 80px; flex-shrink: 0; }
+.identityCopy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.identityCopy h3 { font-family: var(--font-display), sans-serif; font-size: 40px; line-height: 36px; font-weight: 700; letter-spacing: -.06em; text-transform: uppercase; margin: 0; }
+.identityCopy p { font-family: var(--font-handwriting), cursive; color: var(--accent); font-size: 16px; line-height: 24px; letter-spacing: -.04em; margin: 0; }
+.tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tabs button { position: relative; height: 88px; border: 1px solid #333; border-right: 0; color: #777; font-size: 32px; font-weight: 600; letter-spacing: -.06em; cursor: pointer; }
+.tabs button:last-child { border-right: 1px solid #333; }
+.tabs button[aria-selected="true"]::before { content: ""; height: 4px; position: absolute; left: 0; right: 0; top: -1px; background: var(--accent); }
+.tabs button:hover, .arrows button:hover { color: #eee; }
+.section button:focus-visible, .tabPanel:focus-visible { outline: 2px solid var(--accent); outline-offset: -5px; }
+@keyframes revealPrinciple { from { opacity: 0; } to { opacity: 1; } }
+@keyframes headingReveal { from { opacity:.15; transform:translate3d(0,42px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+@supports (animation-timeline:view()) {
+  @media (prefers-reduced-motion:no-preference) { .heading { animation:headingReveal linear both; animation-timeline:view(); animation-range:entry 5% entry 40%; } }
+}
+@media (max-width: 1199px) {
+  .section { padding: 64px 15px; }
+  .heading h2 { font-size: 50px; }
+  .content { padding: 40px 24px; }
+  .quote { font-size: 24px; line-height: 28.8px; min-height: 86.4px; }
+}
+@media (max-width: 599px) {
+  .quote { min-height: 172.8px; }
+  .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tabs button:nth-child(2) { border-right: 1px solid #333; }
+  .tabs button:nth-child(n + 3) { border-top: 0; }
+  .identityCopy p { font-size: 12px; line-height: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .principle,.heading { animation: none; transform:none; opacity:1; }
+}

@@ -1,0 +1,262 @@
+.main { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 140px; overflow: clip; background: #000; }
+.main > section { position: relative; display: flex; width: 100%; flex: none; align-items: center; justify-content: center; padding-right: 15px; padding-left: 15px; }
+.hero { height: 1186px; }
+.heroInner, .overviewInner, .resultInner, .metricsInner, .statementInner, .creditsInner, .moreInner { width: 100%; max-width: 1500px; margin: 0 auto; }
+.heroInner { display: flex; height: 1186px; flex-direction: column; gap: 48px; }
+.heroHeader { display: flex; height: 174px; align-items: center; gap: 24px; }
+.heroCopy { display: flex; min-width: 0; flex: 1; flex-direction: column; align-items: flex-start; gap: 16px; }
+.heroCopy h1, .narrative h2, .resultCopy h2, .moreHeader h2 { margin: 0; font-size: 88px; line-height: 79.2px; letter-spacing: -6.16px; }
+.heroCopy > p { margin: 0; color: #a4a4a4; font-size: 24px; font-weight: 500; line-height: 33.6px; letter-spacing: -.96px; }
+.meta { display: flex; width: 330px; flex: none; flex-direction: column; align-self: stretch; gap: 10px; border-top: 1px solid #333; }
+.metaRow { display: grid; min-height: 32px; grid-template-columns: 80px 1fr; align-items: center; gap: 12px; border-bottom: 1px solid #333; }
+.metaRow > span { color: #8a8a8a; font-size: 14px; }
+.metaRow strong { color: #eee; font-size: 16px; font-weight: 500; line-height: 1.1; }
+.services { display: flex; flex-wrap: wrap; gap: 5px; }
+.services span { padding: 5px 8px; background: #151515; font-size: 12px; font-weight: 500; }
+.backLink { display: flex; width: fit-content; align-items: center; gap: 12px; margin-top: auto; padding: 4px 0; font-size: 16px; font-weight: 500; }
+.heroMedia { height: 964px; overflow: hidden; }
+.artwork { transition: transform 350ms ease, filter 350ms ease; }
+.artwork2 { filter: hue-rotate(18deg) saturate(.82); }
+.artwork3 { filter: hue-rotate(-16deg) brightness(.88); }
+.artwork4 { filter: saturate(.76) brightness(.93); }
+.artwork5 { filter: hue-rotate(25deg) contrast(1.05); }
+.artwork6 { filter: hue-rotate(-28deg) saturate(.7); }
+.overview { height: 1220px; padding-top: 150px; padding-bottom: 150px; }
+.overviewInner { display: flex; height: 920px; flex-direction: column; align-items: center; gap: 64px; }
+.narrative { display: flex; width: min(800px, 100%); height: 163px; flex-direction: column; gap: 8px; }
+.narrative p, .resultCopy p, .challenge p { margin: 0; color: #a4a4a4; font-size: 18px; font-weight: 500; line-height: 25.2px; letter-spacing: -.72px; }
+.pair { display: grid; width: 100%; height: 693px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pair > div { min-width: 0; }
+.challenge { min-height: 229px; padding-top: 64px; padding-bottom: 64px; background: linear-gradient(90deg, #101010, #181818 50%, #101010); }
+.challengeInner { display: grid; width: min(800px, 100%); min-height: 101px; grid-template-columns: 230px 1fr; align-items: start; gap: 24px; }
+.challengeInner :global(.section-label) { margin: 0; }
+.main[data-project="orbit"] .challenge { min-height: 254px; }
+.result { height: 1036px; padding-top: 150px; padding-bottom: 150px; }
+.resultInner { display: grid; height: 736px; grid-template-columns: 493px 1fr; align-items: start; justify-content: space-between; gap: 141px; }
+.resultCopy { display: flex; flex-direction: column; gap: 8px; }
+.resultMedia { min-width: 0; height: 736px; overflow: hidden; }
+.metrics { height: 811px; padding-top: 150px; padding-bottom: 150px; }
+.metricsInner { display: grid; height: 511px; grid-template-columns: 634px 634px; align-items: center; justify-content: space-between; gap: 24px; }
+.metricMedia { height: 511px; overflow: hidden; }
+.metricList { display: flex; height: 336px; flex-direction: column; justify-content: space-between; }
+.metric { display: grid; height: 79px; grid-template-columns: 180px 1fr; align-items: center; gap: 16px; border-bottom: 1px solid #333; }
+.metric:last-child { border-bottom: 0; }
+.metric strong { font-size: 88px; line-height: 79.2px; letter-spacing: -6.16px; }
+.metric span { color: #a4a4a4; font-size: 24px; font-weight: 500; line-height: 1.4; letter-spacing: -.96px; }
+.statement { height: 916px; padding-top: 150px; padding-bottom: 150px; }
+.statementInner { display: grid; height: 616px; grid-template-columns: 494px 1fr; gap: 47px; }
+.statementMedia { height: 616px; overflow: hidden; }
+.statement blockquote { display: flex; height: 616px; flex-direction: column; margin: 0; padding: 40px 32px; border: 1px solid #333; }
+.statement blockquote > span { color: var(--accent); font-family: Georgia, serif; font-size: 92px; line-height: .65; }
+.statement blockquote > p { max-width: 870px; margin: auto 0; font-size: 40px; font-weight: 500; line-height: 1.15; letter-spacing: -1.6px; }
+.statement blockquote footer { display: flex; flex-direction: column; gap: 5px; }
+.statement blockquote strong { font-size: 20px; }
+.statement blockquote small { color: #8a8a8a; font-size: 14px; }
+.credits { height: 334px; padding-top: 64px; padding-bottom: 64px; background: linear-gradient(90deg, #101010, #181818 50%, #101010); }
+.creditsInner { display: grid; height: 206px; grid-template-columns: 230px 1fr; gap: 24px; }
+.creditsInner :global(.section-label) { margin: 0; }
+.credits dl { display: flex; flex-direction: column; margin: 0; }
+.credits dl > div { display: grid; flex: 1; grid-template-columns: 1fr 1fr; align-items: center; border-bottom: 1px solid #333; }
+.credits dt, .credits dd { margin: 0; font-size: 18px; font-weight: 500; line-height: 25px; letter-spacing: -.72px; }
+.credits dd { color: #a4a4a4; }
+.more { height: 1210px; padding-top: 150px; padding-bottom: 150px; }
+.moreInner { display: flex; height: 910px; flex-direction: column; gap: 72px; }
+.moreHeader { display: flex; height: 79px; align-items: center; justify-content: space-between; }
+.moreHeader :global(.action-link) { width: 200px; }
+.relatedGrid { display: grid; height: 759px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.relatedCard { position: relative; display: flex; min-width: 0; height: 759px; flex-direction: column; gap: 30px; padding: 28px; overflow: hidden; box-shadow: inset 0 0 0 1px #333; }
+.relatedCard::before { position: absolute; top: 0; right: 0; left: 0; height: 6px; background: #333; content: ""; }
+.relatedCopy { display: flex; height: 116px; flex-direction: column; gap: 18px; }
+.relatedCopy span { color: #a4a4a4; font-family: var(--font-display), sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -.04em; text-transform: uppercase; }
+.relatedCopy h3 { max-width: 580px; margin: 0; font-size: 32px; font-weight: 600; line-height: 1.08; letter-spacing: -.04em; }
+.relatedMedia { min-height: 0; flex: 1; overflow: hidden; }
+.relatedCard:hover .artwork { transform: scale(1.025); }
+
+@media (max-width: 1199px) {
+  .main > section { padding-right: 15px; padding-left: 15px; }
+  .hero { height: 882px; }
+  .heroInner { height: 882px; gap: 48px; }
+  .heroHeader { height: 217px; align-items: flex-start; }
+  .heroCopy h1, .narrative h2, .resultCopy h2, .moreHeader h2 { font-size: 64px; line-height: 57.6px; letter-spacing: -4.48px; }
+  .heroCopy > p { max-width: 430px; font-size: 18px; line-height: 25.2px; letter-spacing: -.72px; }
+  .heroMedia { height: 617px; }
+  .overview { height: 1821px; padding-top: 64px; padding-bottom: 64px; }
+  .overviewInner { height: 1693px; gap: 64px; }
+  .narrative { height: 163px; }
+  .pair { height: 1466px; grid-template-columns: 1fr; grid-template-rows: repeat(2, 721px); }
+  .challenge { min-height: 252px; }
+  .challengeInner { width: 100%; min-height: 124px; grid-template-columns: 180px 1fr; }
+  .result { height: 1005px; padding-top: 64px; padding-bottom: 64px; }
+  .resultInner { height: 877px; grid-template-columns: 270px 1fr; gap: 32px; }
+  .resultMedia { height: 877px; }
+  .metrics { height: 1020px; padding-top: 64px; padding-bottom: 64px; }
+  .metricsInner { display: flex; height: 892px; flex-direction: column; gap: 48px; }
+  .metricMedia { width: 100%; height: 508px; }
+  .metricList { width: 100%; height: 336px; }
+  .metric { grid-template-columns: 180px 1fr; }
+  .metric strong { font-size: 64px; line-height: 57.6px; letter-spacing: -4.48px; }
+  .statement { height: 1409px; padding-top: 64px; padding-bottom: 64px; }
+  .statementInner { height: 1281px; grid-template-columns: 1fr; grid-template-rows: 738px 519px; gap: 24px; }
+  .statementMedia { height: 738px; }
+  .statement blockquote { height: 519px; }
+  .credits { height: 334px; }
+  .creditsInner { grid-template-columns: 180px 1fr; }
+  .more { height: 1835px; padding-top: 64px; padding-bottom: 64px; }
+  .moreInner { height: 1707px; gap: 64px; }
+  .moreHeader { height: 58px; }
+  .relatedGrid { height: 1585px; grid-template-columns: 1fr; grid-template-rows: repeat(2, 780px); gap: 25px; }
+  .relatedCard { height: 780px; padding: 24px; }
+  .main[data-project="orbit"] .overview { height: 1846px; }
+  .main[data-project="orbit"] .overviewInner { height: 1718px; }
+  .main[data-project="orbit"] .narrative { height: 188px; }
+  .main[data-project="orbit"] .challenge { min-height: 277px; }
+  .main[data-project="current"] .overview { height: 1059px; }
+  .main[data-project="current"] .overviewInner { height: 931px; }
+  .main[data-project="current"] .pair { height: 704px; grid-template-rows: 704px; }
+  .main[data-project="current"] .pair > :last-child { display: none; }
+  .main[data-project="fold"] .statement { height: 1381px; }
+  .main[data-project="fold"] .statementInner { height: 1253px; grid-template-rows: 738px 491px; }
+  .main[data-project="fold"] .statement blockquote { height: 491px; }
+}
+
+@media (max-width: 599px) {
+  .hero { height: 657px; }
+  .heroInner { height: 657px; gap: 32px; }
+  .heroHeader { height: 265px; flex-direction: column; gap: 20px; }
+  .heroCopy { width: 100%; gap: 8px; }
+  .heroCopy h1, .narrative h2, .resultCopy h2, .moreHeader h2 { font-size: 64px; line-height: 57.6px; letter-spacing: -4.48px; }
+  .heroCopy > p { font-size: 16px; line-height: 22.4px; letter-spacing: -.64px; }
+  .heroCopy :global(.section-label) { font-size: 18px; }
+  .meta { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 0 12px; border-top: 1px solid #333; }
+  .metaRow { min-width: calc(50% - 6px); flex: 1; grid-template-columns: auto 1fr; gap: 8px; }
+  .metaRow:nth-child(3) { min-width: 100%; }
+  .metaRow > span { font-size: 12px; }
+  .metaRow strong { font-size: 13px; }
+  .services { flex-wrap: nowrap; }
+  .services span { padding: 3px 5px; font-size: 10px; }
+  .backLink { display: none; }
+  .heroMedia { height: 360px; }
+  .overview { height: 1165px; }
+  .overviewInner { height: 1037px; gap: 48px; }
+  .narrative { height: 221px; }
+  .narrative p, .resultCopy p, .challenge p { font-size: 16px; line-height: 22.4px; letter-spacing: -.64px; }
+  .pair { height: 768px; grid-template-rows: repeat(2, 372px); gap: 24px; }
+  .challenge { min-height: 352px; }
+  .challengeInner { min-height: 224px; grid-template-columns: 1fr; gap: 24px; }
+  .result { height: 722px; }
+  .resultInner { height: 594px; grid-template-columns: 1fr; grid-template-rows: 210px 360px; gap: 24px; }
+  .resultCopy h2 br { display: none; }
+  .resultMedia { height: 360px; }
+  .metrics { height: 715px; }
+  .metricsInner { height: 587px; gap: 32px; }
+  .metricMedia { height: 270px; }
+  .metricList { height: 285px; }
+  .metric { height: 79px; grid-template-columns: 145px 1fr; }
+  .metric strong { font-size: 54px; line-height: 49px; letter-spacing: -3.78px; }
+  .metric span { font-size: 16px; line-height: 22px; }
+  .statement { height: 1024px; }
+  .statementInner { height: 896px; grid-template-rows: 360px 512px; }
+  .statementMedia { height: 360px; }
+  .statement blockquote { height: 512px; padding: 32px 24px; }
+  .statement blockquote > p { font-size: 30px; line-height: 1.18; letter-spacing: -1.2px; }
+  .credits { height: 359px; }
+  .creditsInner { height: 231px; grid-template-columns: 1fr; gap: 16px; }
+  .credits dl > div { grid-template-columns: 1fr 1fr; }
+  .credits dt, .credits dd { font-size: 15px; line-height: 21px; }
+  .more { height: 1254px; }
+  .moreInner { height: 1126px; gap: 48px; }
+  .moreHeader { height: 58px; }
+  .moreHeader :global(.action-link) { display: none; }
+  .relatedGrid { height: 1020px; grid-template-rows: repeat(2, 498px); gap: 24px; }
+  .relatedCard { height: 498px; gap: 20px; padding: 20px; }
+  .relatedCopy { height: 96px; gap: 12px; }
+  .relatedCopy span { font-size: 20px; }
+  .relatedCopy h3 { font-size: 24px; line-height: 1.12; }
+  .main[data-project="orbit"] .overview { height: 1165px; }
+  .main[data-project="orbit"] .overviewInner { height: 1037px; }
+  .main[data-project="orbit"] .narrative { height: 221px; }
+  .main[data-project="orbit"] .challenge { min-height: 378px; }
+  .main[data-project="orbit"] .challengeInner { min-height: 250px; }
+  .main[data-project="orbit"] .result { height: 697px; }
+  .main[data-project="orbit"] .resultInner { height: 569px; grid-template-rows: 185px 360px; }
+  .main[data-project="current"] .overview { height: 756px; }
+  .main[data-project="current"] .overviewInner { height: 628px; }
+  .main[data-project="current"] .pair { height: 360px; grid-template-rows: 360px; }
+  .main[data-project="current"] .challenge { min-height: 327px; }
+  .main[data-project="current"] .challengeInner { min-height: 199px; }
+  .main[data-project="fold"] .overview { height: 1140px; }
+  .main[data-project="fold"] .overviewInner { height: 1012px; }
+  .main[data-project="fold"] .narrative { height: 196px; }
+  .main[data-project="fold"] .challenge,
+  .main[data-project="common"] .challenge { min-height: 302px; }
+  .main[data-project="fold"] .challengeInner,
+  .main[data-project="common"] .challengeInner { min-height: 174px; }
+  .main[data-project="signal"] .challenge { min-height: 327px; }
+  .main[data-project="signal"] .challengeInner { min-height: 199px; }
+  .main[data-project="signal"] .result { height: 697px; }
+  .main[data-project="signal"] .resultInner { height: 569px; grid-template-rows: 185px 360px; }
+  .main[data-project="fold"] .statement { height: 966px; }
+  .main[data-project="fold"] .statementInner { height: 838px; grid-template-rows: 360px 454px; }
+  .main[data-project="fold"] .statement blockquote { height: 454px; }
+  .main[data-project="common"] .statement { height: 995px; }
+  .main[data-project="common"] .statementInner { height: 867px; grid-template-rows: 360px 483px; }
+  .main[data-project="common"] .statement blockquote { height: 483px; }
+}
+
+/* Personalized copy is longer than the reference copy, so narrative sections size intrinsically while media keeps the measured composition. */
+.hero, .heroInner { height: auto; min-height: 1186px; }
+.heroHeader { height: auto; min-height: 174px; }
+.main .overview { height: auto; min-height: 1220px; }
+.overviewInner { height: auto; min-height: 920px; }
+.narrative { height: auto; min-height: 163px; }
+.challenge, .main[data-project] .challenge { height: auto; min-height: 229px; }
+.challengeInner { height: auto; }
+.result { height: auto; min-height: 1036px; }
+.resultInner { height: auto; min-height: 736px; }
+.metrics { height: auto; min-height: 811px; }
+.metricsInner { height: auto; min-height: 511px; }
+.statement { height: auto; min-height: 916px; }
+.statementInner { height: auto; min-height: 616px; }
+.credits { height: auto; min-height: 334px; }
+.creditsInner { height: auto; min-height: 206px; }
+.more { height: auto; min-height: 1210px; }
+.moreInner { height: auto; min-height: 910px; }
+
+@media (max-width: 1199px) {
+  .hero, .heroInner { min-height: 882px; }
+  .heroHeader { min-height: 217px; }
+  .main .overview { min-height: 0; }
+  .overviewInner { min-height: 0; }
+  .narrative { min-height: 163px; }
+  .challenge, .main[data-project] .challenge { min-height: 252px; }
+  .result { min-height: 1005px; }
+  .resultInner { min-height: 877px; }
+  .metrics { min-height: 1020px; }
+  .metricsInner { min-height: 892px; }
+  .statement { min-height: 1409px; }
+  .statementInner { min-height: 1281px; }
+  .more { min-height: 1835px; }
+  .moreInner { min-height: 1707px; }
+}
+
+@media (max-width: 599px) {
+  .hero, .heroInner { min-height: 657px; }
+  .heroHeader { min-height: 265px; }
+  .narrative { min-height: 0; }
+  .challenge, .main[data-project] .challenge { min-height: 0; }
+  .result { min-height: 722px; }
+  .resultInner { min-height: 594px; }
+  .metrics { min-height: 715px; }
+  .metricsInner { min-height: 587px; }
+  .statement { min-height: 1024px; }
+  .statementInner { min-height: 896px; }
+  .credits { min-height: 359px; }
+  .more { min-height: 1254px; }
+  .moreInner { min-height: 1126px; }
+}
+
+.metricList { height: auto; gap: 24px; }
+.metric { height: auto; min-height: 79px; padding-bottom: 12px; }
+.metric strong { font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -.05em; white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) { .artwork { transition: none; } }

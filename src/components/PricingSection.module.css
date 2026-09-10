@@ -1,0 +1,66 @@
+.section { width: 100%; background: #000; color: #eee; padding: 150px 15px; }
+.wrapper { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.heading { text-align: center; }
+.content { display: flex; flex-direction: column; gap: 16px; }
+.plans { display: flex; flex-direction: column; gap: 24px; }
+.switch { display: flex; height: 48px; width: 360px; max-width: 100%; border: 1px solid #333; align-self: center; }
+.switch button { display: flex; align-items: center; justify-content: center; gap: 4px; flex: 1; font-size: 18px; line-height: 25px; color: #8a8a8a; background: transparent; transition: color 250ms, background-color 250ms; }
+.switch button[aria-pressed="true"] { color: #000; background: #eee; }
+.switch button span { border: 1px solid currentColor; border-radius: 20px; font-size: 14px; line-height: 18px; padding: 0 5px; text-transform: uppercase; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.card { border: 1px solid #333; background: #151515; display: flex; flex-direction: column; min-height: 587.219px; min-width: 0; }
+.artwork { height: 130px; flex-shrink: 0; overflow: hidden; filter: grayscale(1); border-bottom: 1px solid #333; }
+.artwork > div { transform: scale(1.8); }
+.cardContent { padding: 24px; display: flex; flex-direction: column; flex: 1; gap: 48px; }
+.intro { min-height: 67.609px; }
+.details { display: flex; flex-direction: column; flex: 1; gap: 16px; }
+.planHeading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.planHeading h3 { font-size: 32px; font-weight: 700; line-height: 38.4px; letter-spacing: -1.28px; }
+.planHeading .badge { font-size: 18px; white-space: nowrap; }
+.intro > p { color: #a4a4a4; font-size: 18px; line-height: 25.2px; letter-spacing: -.72px; margin-top: 4px; }
+.priceBlock { margin-top: 0; position: relative; height: 86.4px; flex-shrink: 0; animation: priceReveal 250ms cubic-bezier(.22, 1, .36, 1) both; }
+.price { display: flex; align-items: flex-start; font-family: var(--font-display), Impact, sans-serif; font-size: 80px; font-weight: 600; line-height: .9; letter-spacing: -.06em; }
+.price > span { color: var(--accent); }
+.price small { font-family: var(--font-handwriting), cursive; font-size: 14px; line-height: 20px; letter-spacing: -.6px; font-weight: 400; color: #777; margin-left: 8px; }
+.billingNote { font-size: 11px; line-height: 14px; color: #aaa; }
+.features { padding-top: 24px; border-top: 1px solid #333; display: flex; flex-direction: column; gap: 8px; list-style: none; color: #a4a4a4; font-size: 18px; line-height: 25.2px; flex: 1; }
+.features li { display: flex; align-items: center; gap: 16px; }
+.features svg { flex-shrink: 0; color: var(--accent); }
+.planAction { padding: 15px 16px; }
+.bespoke { border: 1px solid #333; padding: 29px 32px; min-height: 155.609px; display: flex; align-items: center; gap: 20px; }
+.bespokeCopy { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.bespokeCopy > :first-child { font-size: 20px; line-height: 18px; }
+.bespokeCopy h3 { font-size: 32px; line-height: 38.4px; font-weight: 700; letter-spacing: -1.28px; }
+.bespokeCopy > p:last-child { font-size: 18px; line-height: 25.2px; color: #a4a4a4; letter-spacing: -.72px; }
+.bespokeAction { width: 240px; flex-shrink: 0; position: relative; }
+.bespokeAction > a { padding: 15px 16px; }
+.bespokeAction small { position: absolute; top: calc(100% + 6px); right: 0; font-size: 11px; line-height: 14px; color: #999; text-align: right; }
+@media (max-width: 1199px) {
+  .section { padding: 64px 15px; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .card { min-height: 577.609px; }
+  .planHeading h3 { font-size: 24px; line-height: 28.8px; letter-spacing: -.96px; }
+  .intro { min-height: 58px; }
+  .cardContent { gap: 48px; }
+  .bespoke { flex-direction: column; align-items: stretch; min-height: 223px; }
+  .bespokeCopy h3 { font-size: 24px; line-height: 28.8px; letter-spacing: -.96px; }
+  .bespokeAction { width: 100%; }
+}
+@media (max-width: 599px) {
+  .card { min-height: 653.219px; }
+  .cardContent { gap: 48px; }
+  .intro { min-height: 83.203px; }
+  .planHeading .badge { font-size: 13px; }
+  .price { font-size: 80px; }
+  .features { padding-top: 24px; }
+  .bespoke { min-height: 248.203px; }
+  .bespokeAction small { font-size: 10px; }
+}
+@keyframes priceReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes focusReveal { from { opacity:.15; transform:translate3d(0,48px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+@supports (animation-timeline:view()) {
+  @media (prefers-reduced-motion:no-preference) {
+    .heading,.card,.bespoke { animation:focusReveal linear both; animation-timeline:view(); animation-range:entry 2% entry 32%; }
+  }
+}
+@media (prefers-reduced-motion: reduce) { .priceBlock,.heading,.card,.bespoke { animation: none; transform:none; opacity:1; } }

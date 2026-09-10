@@ -1,0 +1,35 @@
+.section { position: relative; padding: 0 15px; height: 400vh; background: #000; }
+.wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; height: 400vh; }
+.stickyTitle { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; flex-shrink: 0; width: 100%; height: 100vh; z-index: 3; pointer-events: none; }
+.titleInner { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; max-width: 1500px; }
+.label { margin: 0; text-align: center; min-height: 24px; }
+.title { margin: 0; width: min(100%, 1100px); font-size: clamp(42px, 8vw, 64px); line-height: .88; letter-spacing: -.055em; font-weight: 600; color: #8a8a8a; text-align: center; text-transform: uppercase; text-wrap: balance; text-shadow: 0 2px 18px #000; }
+.track { position: relative; display: flex; gap: 10px; width: 100%; max-width: 1500px; height: 300vh; flex-shrink: 0; }
+.card { position: absolute; width: 288px; aspect-ratio: .81592; z-index: 2; overflow: hidden; transform: translate3d(0,calc(var(--section-progress) * var(--drift)),0) scale(calc(var(--base-scale) + var(--section-progress) * .26)); transform-origin: center; will-change: transform; }
+.card:nth-child(1) { top: 42px; left: 12px; }
+.card:nth-child(2) { top: 422px; right: 12px; }
+.card:nth-child(3) { top: 836px; left: 15px; }
+.card:nth-child(4) { top: 1235px; right: 0; }
+.artwork { position: absolute; inset: 0; width: 100%; height: 100%; }
+.caption { position: absolute; inset: auto 0 0; padding: 14px; background: linear-gradient(transparent, rgb(0 0 0 / 80%)); color: #eee; }
+.caption h3 { margin: 0; font-size: 32px; line-height: .95; font-weight: 600; text-transform: uppercase; }
+.caption p { margin: 5px 0 0; font-size: 14px; line-height: 1.2; }
+
+/* Yield the reading layer before the cards cross the sticky headline. */
+@media (prefers-reduced-motion: no-preference) {
+  .titleInner { opacity: clamp(0, calc(1 - (var(--section-progress, 0) - .08) * 12), 1); }
+}
+
+@media (min-width: 1200px) {
+  .title { font-size: clamp(76px, 8.2vw, 118px); line-height: .88; }
+  .card { width: 28%; }
+  .card:nth-child(1) { top: 71px; left: 84px; }
+  .card:nth-child(2) { top: 325px; right: 104px; }
+  .card:nth-child(3) { top: 874px; left: 156px; }
+  .card:nth-child(4) { top: 1035px; right: 167px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stickyTitle { position: relative; }
+  .card { transform: none; will-change: auto; }
+}

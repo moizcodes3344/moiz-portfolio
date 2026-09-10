@@ -1,0 +1,35 @@
+.section { padding: 150px 15px; border-top: 1px solid #151515; }
+.container { max-width: 1500px; margin: auto; display: flex; flex-direction: column; gap: 28px; }
+.heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.heading > div { display: flex; flex-direction: column; gap: 16px; }
+.heading > button { min-width: 200px; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; align-items: start; }
+.card { text-align: left; color: inherit; background: none; border: none; padding: 0; min-width: 0; }
+.media { overflow: hidden; }
+.media > div { transition: transform .5s; }
+.card:hover .media > div { transform: scale(1.025); }
+.media0 { aspect-ratio: 1.425; filter: grayscale(1); }
+.media1 { aspect-ratio: .7; }
+.media2 { aspect-ratio: .83; }
+.card h3 { font-family: var(--font-display),Impact,sans-serif; font-weight: 600; font-size: 40px; line-height: .95; text-transform: uppercase; letter-spacing: -.05em; margin-top: 16px; }
+.card > p { font-family: var(--font-handwriting),cursive; font-size: 15px; line-height: 1.8; color: #a4a4a4; margin-top: 8px; }
+.dialog { max-width: 760px; width: calc(100% - 30px); max-height: calc(100svh - 30px); margin: auto; padding: 40px; background: #151515; color: #eee; border: 1px solid #444; }
+.dialog::backdrop { background: #000c; }
+.dialog article { display: flex; flex-direction: column; gap: 28px; }
+.dialog article > button { align-self: flex-end; }
+.dialog article > p:last-child { color: #bbb; font-size: 22px; line-height: 1.6; }
+@keyframes noteReveal { from { opacity:.15; transform:translate3d(0,48px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+@supports (animation-timeline:view()) {
+  @media (prefers-reduced-motion:no-preference) {
+    .heading,.card { animation:noteReveal linear both; animation-timeline:view(); animation-range:entry 2% entry 34%; }
+  }
+}
+@media (max-width: 1199px) {
+  .section { padding: 64px 15px; }
+  .heading { align-items: stretch; flex-direction: column; gap: 8px; }
+  .heading > div { gap: 16px; }
+  .grid { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .card h3 { font-size: 40px; }
+  .dialog { padding: 24px; }
+}
+@media(prefers-reduced-motion:reduce){.heading,.card{animation:none;transform:none;opacity:1}.media>div{transition:none}.card:hover .media>div{transform:none}}
