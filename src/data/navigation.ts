@@ -3,7 +3,7 @@ export const navigationData = {
   name: portfolioProfile.name,
   wordmark: ["MOIZ", "AHMAD"],
   description: portfolioProfile.primaryTitle,
-  menuTitle: "Explore Moiz Ahmadâ€™s portfolio",
+  menuTitle: "Explore Moiz Ahmad’s portfolio",
   navigationLabel: "Main navigation",
   homeLabel: "Moiz Ahmad home",
   openLabel: "Open navigation",

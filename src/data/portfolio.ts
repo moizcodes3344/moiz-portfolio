@@ -21,7 +21,7 @@ export const portfolioProfile = {
   shortIntroduction:
     "I build modern, reliable software products with thoughtful interfaces, scalable backend systems, and maintainable architecture.",
   biography:
-    "Iâ€™m Moiz Ahmad, a software engineer focused on building useful digital products from interface to infrastructure. I approach engineering through clear problem boundaries, maintainable architecture, responsive experiences, and dependable production behavior.",
+    "I'm Moiz Ahmad, a software engineer focused on building useful digital products from interface to infrastructure. I approach engineering through clear problem boundaries, maintainable architecture, responsive experiences, and dependable production behavior.",
   availability: null as string | null,
   location: null as string | null,
   heroImage: {
@@ -94,7 +94,7 @@ export const portfolioProfile = {
       type: "Agency Website",
       status: "Live Project",
       summary:
-        "A complete agency website built to present M.M.E Solutionsâ€™ services, work, and digital presence through a modern, responsive web experience.",
+        "A complete agency website built to present M.M.E Solutions’ services, work, and digital presence through a modern, responsive web experience.",
       liveUrl: "https://www.marketmesolutions.com/",
       repositoryUrl: null,
       media: null,

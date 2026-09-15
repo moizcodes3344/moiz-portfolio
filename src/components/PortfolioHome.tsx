@@ -72,7 +72,7 @@ export function Capabilities() {
 }
 
 export function Technologies() {
-  return <section className={styles.technology} aria-labelledby="technology-title"><div className={styles.techTrack} data-scroll-motion aria-hidden="true">TOOLS I WORK WITH â€” TECHNOLOGIES â€”</div><header><p>03 / Engineering stack</p><h2 id="technology-title">TECHNOLOGIES</h2></header><div className={styles.techRows}>{profile.technologies.map((group) => <div data-reveal-item key={group.category}><span>{group.category}</span><p>{group.items.join(" Â· ")}</p></div>)}</div></section>;
+  return <section className={styles.technology} aria-labelledby="technology-title"><div className={styles.techTrack} data-scroll-motion aria-hidden="true">TOOLS I WORK WITH — TECHNOLOGIES —</div><header><p>03 / Engineering stack</p><h2 id="technology-title">TECHNOLOGIES</h2></header><div className={styles.techRows}>{profile.technologies.map((group) => <div data-reveal-item key={group.category}><span>{group.category}</span><p>{group.items.join(" · ")}</p></div>)}</div></section>;
 }
 
 export function Approach() {
@@ -84,5 +84,5 @@ export function Writing() {
 }
 
 export function ContactCta() {
-  return <section className={styles.contact} aria-labelledby="contact-title"><p>Have a useful product in mind?</p><h2 id="contact-title">LETâ€™S BUILD<br />SOMETHING<br /><em>USEFUL.</em></h2><div><a href={profile.emailUrl}>Email <ArrowIcon /></a>{profile.socialLinks.map((link) => <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowIcon /></a>)}<a href={profile.phoneUrl}>Phone <ArrowIcon /></a></div></section>;
+  return <section className={styles.contact} aria-labelledby="contact-title"><p>Have a useful product in mind?</p><h2 id="contact-title">LET&apos;S BUILD<br />SOMETHING<br /><em>USEFUL.</em></h2><div><a href={profile.emailUrl}>Email <ArrowIcon /></a>{profile.socialLinks.map((link) => <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowIcon /></a>)}<a href={profile.phoneUrl}>Phone <ArrowIcon /></a></div></section>;
 }
