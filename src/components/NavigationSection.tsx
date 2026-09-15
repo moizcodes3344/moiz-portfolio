@@ -41,6 +41,15 @@ export function NavigationSection({ data }: { data: NavigationData }) {
     };
   }, [open]);
 
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1200px)");
+    const closeDesktopMenu = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
+    desktopQuery.addEventListener("change", closeDesktopMenu);
+    return () => desktopQuery.removeEventListener("change", closeDesktopMenu);
+  }, []);
+
   const resolveHref = (href: string) => {
     if (!innerPage) return href;
     if (href === "#top") return "/";
@@ -59,6 +68,11 @@ export function NavigationSection({ data }: { data: NavigationData }) {
         <a href={innerPage ? "/" : "#top"} aria-label={data.homeLabel} className={styles.identity} tabIndex={identityVisible ? 0 : -1} aria-hidden={!identityVisible}>
           <Wordmark words={data.wordmark} className={styles.wordmark} />
         </a>
+        <nav className={styles.desktopNavigation} aria-label={data.navigationLabel}>
+          <ul className={styles.desktopLinks}>
+            {data.links.map((link) => <li key={link.href}><a href={resolveHref(link.href)} target={"external" in link && link.external ? "_blank" : undefined} rel={"external" in link && link.external ? "noopener noreferrer" : undefined}>{link.label}</a></li>)}
+          </ul>
+        </nav>
         <button ref={triggerRef} type="button" className={styles.menuButton} aria-label={data.openLabel} aria-haspopup="dialog" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
           <span className={styles.menuStroke} /><span className={styles.menuStroke} />
         </button>
