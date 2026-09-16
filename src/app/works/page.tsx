@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function WorksPage() {
-  return (
-    <main id="main-content" className="works-page-main">
-      <WorksPortfolioPage />
-    </main>
-  );
+  return <WorksPortfolioPage />;
 }
