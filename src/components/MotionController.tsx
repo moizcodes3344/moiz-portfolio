@@ -4,6 +4,7 @@ export function MotionController() {
   useEffect(() => {
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) return;
+    document.documentElement.dataset.motion = "ready";
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section:not(#top)"));
     const items = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal-item]"));
     sections.forEach((section) => section.setAttribute("data-motion-section", ""));
@@ -20,7 +21,7 @@ export function MotionController() {
     const update = () => { frame = 0; elements.forEach((element) => { const rect = element.getBoundingClientRect(); const progress = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height))); element.style.setProperty("--scroll-shift", `${(progress - 0.5) * -80}px`); }); };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     update(); addEventListener("scroll", schedule, { passive: true }); addEventListener("resize", schedule);
-    return () => { reveal.disconnect(); removeEventListener("scroll", schedule); removeEventListener("resize", schedule); cancelAnimationFrame(frame); };
+    return () => { delete document.documentElement.dataset.motion; reveal.disconnect(); removeEventListener("scroll", schedule); removeEventListener("resize", schedule); cancelAnimationFrame(frame); };
   }, []);
   return null;
 }
