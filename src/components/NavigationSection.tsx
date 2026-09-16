@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import type { NavigationData } from "@/data/navigation";
+import { portfolioProfile } from "@/data/portfolio";
 import { Wordmark } from "@/components/Primitives";
 import styles from "./NavigationSection.module.css";
 
@@ -10,22 +12,8 @@ export function NavigationSection({ data }: { data: NavigationData }) {
   const pathname = usePathname();
   const innerPage = pathname !== "/";
   const [open, setOpen] = useState(false);
-  const [compact, setCompact] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const next = window.scrollY > 600;
-      setCompact(current => current === next ? current : next);
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", schedule, { passive: true });
-    return () => { window.removeEventListener("scroll", schedule); cancelAnimationFrame(frame); };
-  }, []);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -59,18 +47,28 @@ export function NavigationSection({ data }: { data: NavigationData }) {
     if (href === "#contact") return "/contact";
     return href;
   };
-  const identityVisible = true;
+  const isActive = (href: string) => {
+    if (href === "#top") return pathname === "/";
+    if (href === "#works") return pathname.startsWith("/works");
+    if (href === "#about") return pathname === "/about";
+    if (href === "#notes") return pathname.startsWith("/blog");
+    if (href === "#contact") return pathname === "/contact";
+    return false;
+  };
 
   return (
     <>
       <a className={styles.skipLink} href="#main-content">{data.skipLabel}</a>
-      <div role="banner" className={`framer-1bzuqnv-container ${styles.header} ${compact ? styles.compact : ""} ${innerPage ? styles.innerPage : ""}`} data-section="navigation">
-        <a href={innerPage ? "/" : "#top"} aria-label={data.homeLabel} className={styles.identity} tabIndex={identityVisible ? 0 : -1} aria-hidden={!identityVisible}>
+      <div role="banner" className={`framer-1bzuqnv-container ${styles.header} ${innerPage ? styles.innerPage : ""}`} data-section="navigation">
+        <a href={innerPage ? "/" : "#top"} aria-label={data.homeLabel} className={styles.identity}>
+          <span className={styles.avatar} aria-hidden="true">
+            <Image src={portfolioProfile.heroImage.src} alt="" fill sizes="48px" loading="eager" />
+          </span>
           <Wordmark words={data.wordmark} className={styles.wordmark} />
         </a>
         <nav className={styles.desktopNavigation} aria-label={data.navigationLabel}>
           <ul className={styles.desktopLinks}>
-            {data.links.map((link) => <li key={link.href}><a href={resolveHref(link.href)} target={"external" in link && link.external ? "_blank" : undefined} rel={"external" in link && link.external ? "noopener noreferrer" : undefined}>{link.label}</a></li>)}
+            {data.links.map((link) => <li key={link.href}><a href={resolveHref(link.href)} aria-current={isActive(link.href) ? "page" : undefined} target={"external" in link && link.external ? "_blank" : undefined} rel={"external" in link && link.external ? "noopener noreferrer" : undefined}>{link.label}</a></li>)}
           </ul>
         </nav>
         <button ref={triggerRef} type="button" className={styles.menuButton} aria-label={data.openLabel} aria-haspopup="dialog" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
@@ -92,7 +90,7 @@ export function NavigationSection({ data }: { data: NavigationData }) {
           </button>
           <nav aria-label={data.navigationLabel}>
             <ul className={styles.links}>
-              {data.links.map((link) => <li key={link.href}><a className="display-heading" href={resolveHref(link.href)} target={"external" in link && link.external ? "_blank" : undefined} rel={"external" in link && link.external ? "noopener noreferrer" : undefined} onClick={() => setOpen(false)}>{link.label}</a></li>)}
+              {data.links.map((link) => <li key={link.href}><a className="display-heading" href={resolveHref(link.href)} aria-current={isActive(link.href) ? "page" : undefined} target={"external" in link && link.external ? "_blank" : undefined} rel={"external" in link && link.external ? "noopener noreferrer" : undefined} onClick={() => setOpen(false)}>{link.label}</a></li>)}
             </ul>
           </nav>
           <div className={styles.details}><p className="section-label">{data.name}</p><p>{data.description}</p></div>
