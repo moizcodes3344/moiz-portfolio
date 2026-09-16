@@ -7,9 +7,10 @@ import styles from "./PortfolioHome.module.css";
 
 export function ProjectVisual({ project }: { project: PortfolioProject }) {
   return (
-    <div className={styles.projectVisual} data-scroll-motion role="img" aria-label={project.mediaDescription}>
+    <div className={styles.projectVisual} data-project-number={project.number} data-scroll-motion role="img" aria-label={project.mediaDescription}>
       <span className={styles.visualIndex}>{project.number}</span>
-      <div className={styles.window}><i /><i /><i /><span>{project.name}</span></div>
+      <div className={styles.visualGrid} aria-hidden="true" />
+      <div className={styles.window}><div><i /><i /><i /></div><span>{project.name}</span><small>{project.type}</small></div>
       <span className={styles.mediaStatus}>{project.media ? "Project media" : "Media slot ready"}</span>
     </div>
   );
@@ -59,7 +60,7 @@ export function SelectedProjects() {
         <article className={styles.project} data-reveal-item key={project.slug}>
           <div className={styles.projectMeta}><span>{project.number}</span><p>{project.type}<br /><em>{project.status}</em></p></div>
           <Link className={styles.projectMediaLink} href={`/works/${project.slug}`}><ProjectVisual project={project} /></Link>
-          <div className={styles.projectCopy}><h3>{project.name}</h3><p>{project.summary}</p>{project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit live site <ArrowIcon /></a> : <Link href={`/works/${project.slug}`}>View placeholder <ArrowIcon /></Link>}</div>
+          <div className={styles.projectCopy}><p className={styles.projectType}>{project.type}</p><h3>{project.name}</h3><p>{project.summary}</p><div className={styles.projectActions}><Link href={`/works/${project.slug}`}>View project <ArrowIcon /></Link>{project.liveUrl && <a className={styles.secondaryProjectAction} href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit live site <ArrowIcon /></a>}</div></div>
           <span className={styles.sideNumber}>0{index + 1}</span>
         </article>
       ))}</div>
@@ -80,9 +81,9 @@ export function Approach() {
 }
 
 export function Writing() {
-  return <section id="notes" className={styles.writing} aria-labelledby="writing-title"><header><div><p>05 / Writing</p><h2 id="writing-title">ENGINEERING<br />NOTES</h2></div><Link href="/blog">View all notes <ArrowIcon /></Link></header><div>{articles.slice(0, 3).map((article, index) => <Link data-reveal-item href={`/blog/${article.slug}`} key={article.slug}><span>0{index + 1}</span><p>{article.category}</p><h3>{article.title}</h3><ArrowIcon /></Link>)}</div></section>;
+  return <section id="notes" className={styles.writing} aria-labelledby="writing-title"><header><div><p>05 / Writing</p><h2 id="writing-title">ENGINEERING<br />NOTES</h2></div><Link href="/blog">View all notes <ArrowIcon /></Link></header><div>{articles.slice(0, 3).map((article, index) => <Link data-reveal-item href={`/blog/${article.slug}`} key={article.slug}><span className={styles.articleIndex}>0{index + 1}</span><p className={styles.articleMeta}>{article.category}<small>{article.date} · {article.readTime}</small></p><span className={styles.articleCopy}><h3>{article.title}</h3><small>{article.excerpt}</small></span><ArrowIcon /></Link>)}</div></section>;
 }
 
 export function ContactCta() {
-  return <section className={styles.contact} aria-labelledby="contact-title"><p>Have a useful product in mind?</p><h2 id="contact-title">LET&apos;S BUILD<br />SOMETHING<br /><em>USEFUL.</em></h2><div><a href={profile.emailUrl}>Email <ArrowIcon /></a>{profile.socialLinks.map((link) => <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowIcon /></a>)}<a href={profile.phoneUrl}>Phone <ArrowIcon /></a></div></section>;
+  return <section className={styles.contact} aria-labelledby="contact-title"><p>Have a useful product in mind?</p><h2 id="contact-title"><span>LET&apos;S</span><span>BUILD</span><span>SOMETHING</span><em>USEFUL.</em></h2><div><a href={profile.emailUrl}>Email <ArrowIcon /></a>{profile.socialLinks.map((link) => <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowIcon /></a>)}<a href={profile.phoneUrl}>Phone <ArrowIcon /></a></div></section>;
 }
